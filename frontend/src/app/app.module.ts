@@ -11,6 +11,8 @@ import { PersonalTabComponent } from './components/personal-tab/personal-tab.com
 import { PasswordTabComponent } from './components/password-tab/password-tab.component';
 import { PrivacyTabComponent } from './components/privacy-tab/privacy-tab.component';
 import { CustomTabComponent } from './components/custom-tab/custom-tab.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,12 @@ import { CustomTabComponent } from './components/custom-tab/custom-tab.component
     PrivacyTabComponent,
     CustomTabComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
