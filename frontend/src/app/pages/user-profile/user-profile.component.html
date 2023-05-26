@@ -1,0 +1,25 @@
+<body>
+  <div class="container">
+    <div class="container-left">
+      <app-general-profile></app-general-profile>
+    </div>
+    <div class="container-right">
+      <div class="tabs-groups">
+        <button class="tablinks" routerLink="/app-account-info-tab">
+          Tab 1
+        </button>
+        <button class="tablinks" routerLink="/app-custom-tab">Tab 2</button>
+        <button class="tablinks" (click)="setTab('app-custom-tab')">
+          Tab 3
+        </button>
+        <Tab></Tab>
+        <!-- <app-account-info-tab></app-account-info-tab>
+        <app-password-tab></app-password-tab>
+        <app-personal-tab></app-personal-tab>
+        <app-privacy-tab></app-privacy-tab>
+        <app-custom-tab></app-custom-tab> -->
+      </div>
+      <router-outlet name="profilePath"></router-outlet>
+    </div>
+  </div>
+</body>
