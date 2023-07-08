@@ -1,41 +1,156 @@
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-  />
-
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
-  <div class="row">
-    <div class="col-md-4 col-sm-12">
-      <app-general-profile></app-general-profile>
-    </div>
-    <div class="col-md-8 col-sm-12">
-      <div class="tabs-groups">
-        <mat-tab-group animationDuration="0ms">
-          <mat-tab label="Account Information"
-            ><app-account-info-tab></app-account-info-tab
-          ></mat-tab>
-          <mat-tab label="Password"
-            ><app-password-tab></app-password-tab
-          ></mat-tab>
-          <mat-tab label="Personal Information"
-            ><app-personal-tab></app-personal-tab
-          ></mat-tab>
-          <mat-tab label="Privacy"><app-privacy-tab></app-privacy-tab></mat-tab>
-          <mat-tab label="Customization"
-            ><app-custom-tab></app-custom-tab
-          ></mat-tab>
-        </mat-tab-group>
+<html>
+  <head>
+    <title>Test</title>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-container">
+        <div class="left">
+          <div class="dropdown">
+            <select
+              #teams
+              name="dropdown-menu"
+              id="menu"
+              (change)="buttonClick(teams.value)"
+            >
+              <option value="Account" selected>Account</option>
+              <option value="Privacy">Privacy</option>
+              <option value="Notifications">Notifications</option>
+            </select>
+          </div>
+          <div class="icons-tabs">
+            <span>
+              <input
+                name="my-button"
+                value="1"
+                type="radio"
+                id="Account"
+                class="Account"
+                checked="checked"
+                (click)="buttonClick('Account')"
+              />
+              <label for="Account">
+                <div style="padding: 8px">
+                  <i class="fa fa-user icon"></i>
+                  <div class="text">Account Information</div>
+                </div></label
+              >
+            </span>
+            <span>
+              <input
+                name="my-button"
+                value="2"
+                type="radio"
+                id="Privacy"
+                class="Privacy"
+                (click)="buttonClick('Privacy')"
+              />
+              <label for="Privacy">
+                <div style="padding: 8px">
+                  <i class="fa fa-user icon"></i>
+                  <div class="text">Privacy</div>
+                </div></label
+              >
+            </span>
+            <span>
+              <input
+                name="my-button"
+                value="3"
+                type="radio"
+                id="Notifications"
+                class="Notifications"
+                (click)="buttonClick('Notifications')"
+              />
+              <label for="Notifications">
+                <div style="padding: 8px">
+                  <i class="fa fa-user icon"></i>
+                  <div class="text">Notifications</div>
+                </div></label
+              >
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="right">
+          <div
+            id="Account"
+            class="content"
+            [style.display]="mp.get('Account') ? 'block' : 'none'"
+          >
+            <h3>Account Information</h3>
+            <div class="acc-items">
+              <div class="prof-pic">
+                <img src="/assets/images/anime.jpg" />
+              </div>
+              <form>
+                <div class="paddings">
+                  <div class="field-holder">
+                    <input
+                      class="inputs"
+                      type="text"
+                      id="first-name"
+                      required
+                    />
+                    <label class="labels" for="first-name">First Name</label>
+                  </div>
+                </div>
+                <div class="paddings">
+                  <div class="field-holder">
+                    <input class="inputs" type="text" id="last-name" required />
+                    <label class="labels" for="last-name">Last Name</label>
+                  </div>
+                </div>
+                <div class="paddings">
+                  <div class="field-holder">
+                    <input class="inputs" type="text" id="phone" required />
+                    <label class="labels" for="phone">Phone Number</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div
+            class="content"
+            id="Privacy"
+            [style.display]="mp.get('Privacy') ? 'block' : 'none'"
+          >
+            <h3>Privacy</h3>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam,
+              ea. Esse, vel harum voluptatum assumenda illum dolorem at aliquid,
+              cum animi nam blanditiis saepe a cupiditate, reiciendis magnam
+              sint perferendis?
+              <form>
+                <!-- <div class="field-holder">
+                  <input type="text" id="name" required />
+                  <label class="labels" for="name">Name</label>
+                </div> -->
+              </form>
+            </div>
+          </div>
+          <div
+            id="Notifications"
+            class="content"
+            [style.display]="mp.get('Notifications') ? 'block' : 'none'"
+          >
+            <h3>Notifications</h3>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, ea.
+            Esse, vel harum voluptatum assumenda illum dolorem at aliquid, cum
+            animi nam blanditiis saepe a cupiditate, reiciendis magnam sint
+            perferendis?
+          </div>
+          <!-- <div class="Acc-Info">Account</div> -->
+        </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
+</html>
